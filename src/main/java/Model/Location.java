@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Location {
 
     @Id
-    private int id;
+    private String id;
 
     private String stateName;
     private String weatherType;
@@ -30,7 +30,7 @@ public class Location {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

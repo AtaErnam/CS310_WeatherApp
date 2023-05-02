@@ -1,4 +1,4 @@
-package Repository;
+package com.example.CS310_WEATHERAPP.repo;
 
 
 import Model.User;
