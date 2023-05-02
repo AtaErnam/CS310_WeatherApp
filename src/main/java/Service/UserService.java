@@ -1,16 +1,12 @@
 package Service;
 
 import Model.User;
-
+import Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import com.example.CS310_WEATHERAPP.repo.UserRepository;
-
 import java.util.List;
-import javax.persistence.EntityNotFoundException;
-
 
 @Service
 public class UserService {

@@ -1,10 +1,10 @@
-package com.example.CS310_WEATHERAPP.repo;
+package Repository;
 
 import Model.Location;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LocationRepo extends MongoRepository<Location,String> {
+public interface LocationRepository extends MongoRepository<Location,String> {
 
 }

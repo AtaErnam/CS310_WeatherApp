@@ -1,20 +1,17 @@
 package Service;
 
 import Model.Location;
-
+import Repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.CS310_WEATHERAPP.repo.LocationRepo;
-
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 public class LocationService {
 
-    private final LocationRepo repository;
+    private final LocationRepository repository;
 
     @Autowired
-    public LocationService(LocationRepo repository) {
+    public LocationService(LocationRepository repository) {
         this.repository = repository;
     }
 

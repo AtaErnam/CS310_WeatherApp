@@ -5,36 +5,18 @@ import Service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.CS310_WEATHERAPP.repo.LocationRepo;
-
 import java.util.List;
 
-@RestController
-@RequestMapping("/temp")
 public class LocationController {
 
     @Autowired
     private LocationService service;
 
-    @Autowired LocationRepo locRepo;
-    
     // ADMIN CONTROLS
 
-    /*
     @PostMapping("/addLocation")
     public Location addLocation(@RequestBody Location location){
         return service.saveLocation(location);
-    }
-    */
-    
-    @PostMapping("/addLocation")
-    public void addLocation(@RequestBody Location location){
-        try {
-        	locRepo.insert(location);
-        }
-        catch (Exception e) {
-        	
-        }
     }
 
     @GetMapping("/locations")
