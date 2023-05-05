@@ -11,6 +11,7 @@ public class User {
 
     @Id
     private String id;
+    
     private String name;
     @DBRef
     private List<Location> locationList;
