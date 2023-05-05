@@ -1,4 +1,4 @@
-package Model;
+package com.example.CS310_WEATHERAPP.Model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;

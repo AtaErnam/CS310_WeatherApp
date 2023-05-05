@@ -1,4 +1,4 @@
-package Model;
+package com.example.CS310_WEATHERAPP.Model;
 
 import java.util.Date;
 

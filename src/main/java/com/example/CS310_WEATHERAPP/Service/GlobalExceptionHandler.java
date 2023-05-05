@@ -1,8 +1,8 @@
-package Service;
+package com.example.CS310_WEATHERAPP.Service;
 
 import java.util.Date;
 
-import Model.ErrorDetails;
+import com.example.CS310_WEATHERAPP.Model.ErrorDetails;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

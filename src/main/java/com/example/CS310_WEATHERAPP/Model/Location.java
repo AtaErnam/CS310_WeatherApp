@@ -1,4 +1,4 @@
-package Model;
+package com.example.CS310_WEATHERAPP.Model;
 
 
 import org.springframework.data.annotation.Id;
@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Location {
 
     @Id
-    private int id;
+    private String id;
 
     private String stateName;
     private String weatherType;
@@ -26,11 +26,11 @@ public class Location {
         this.temperatureLow = temperatureLow;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

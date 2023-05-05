@@ -1,8 +1,8 @@
-package Controller;
+package com.example.CS310_WEATHERAPP.Controller;
 
-import Model.User;
-import Service.ResourceNotFoundException;
-import Service.UserService;
+import com.example.CS310_WEATHERAPP.Model.User;
+import com.example.CS310_WEATHERAPP.Service.ResourceNotFoundException;
+import com.example.CS310_WEATHERAPP.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

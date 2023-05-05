@@ -1,4 +1,4 @@
-package Service;
+package com.example.CS310_WEATHERAPP.Service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

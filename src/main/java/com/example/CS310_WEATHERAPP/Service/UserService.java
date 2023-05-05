@@ -1,7 +1,7 @@
-package Service;
+package com.example.CS310_WEATHERAPP.Service;
 
-import Model.User;
-import Repository.UserRepository;
+import com.example.CS310_WEATHERAPP.Model.User;
+import com.example.CS310_WEATHERAPP.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

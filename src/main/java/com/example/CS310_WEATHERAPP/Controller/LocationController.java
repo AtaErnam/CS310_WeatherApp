@@ -1,7 +1,8 @@
-package Controller;
+package com.example.CS310_WEATHERAPP.Controller;
 
-import Model.Location;
-import Service.LocationService;
+import com.example.CS310_WEATHERAPP.Model.Location;
+import com.example.CS310_WEATHERAPP.Service.LocationService;
+import com.example.CS310_WEATHERAPP.Service.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,12 +26,12 @@ public class LocationController {
     }
 
     @GetMapping("/location/{id}")
-    public Location findLocation(@PathVariable String id){
+    public Location findLocation(@PathVariable String id) throws ResourceNotFoundException {
         return service.getLocationbyId(id);
     }
 
     @PutMapping("/updateLocation")
-    public Location updateLocation(@RequestBody Location location){
+    public Location updateLocation(@RequestBody Location location) throws ResourceNotFoundException {
         return service.updateLocation(location);
     }
 

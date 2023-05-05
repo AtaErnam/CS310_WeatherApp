@@ -1,7 +1,7 @@
-package Service;
+package com.example.CS310_WEATHERAPP.Service;
 
-import Model.Location;
-import Repository.LocationRepository;
+import com.example.CS310_WEATHERAPP.Model.Location;
+import com.example.CS310_WEATHERAPP.repo.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -24,8 +24,8 @@ public class LocationService {
         return repository.findAll();
     }
 
-    public Location getLocationbyId(String id){
-        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format("Location doesnt exist for id = %s!", id)));
+    public Location getLocationbyId(String id) throws ResourceNotFoundException {
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(String.format("Location doesnt exist for id = %s!", id)));
     }
 
     public String deleteLocation(String id){
@@ -33,8 +33,8 @@ public class LocationService {
         return "Location with id:" + id + " is removed!";
     }
 
-    public Location updateLocation(Location location){
-        Location existingLocation = repository.findById(location.getId()).orElseThrow(() -> new EntityNotFoundException(String.format("Location doesnt exist for id = %s!", location.getId())));
+    public Location updateLocation(Location location) throws ResourceNotFoundException {
+        Location existingLocation = repository.findById(location.getId()).orElseThrow(() -> new ResourceNotFoundException(String.format("Location doesnt exist for id = %s!", location.getId())));
 
 
         return repository.save(existingLocation);
