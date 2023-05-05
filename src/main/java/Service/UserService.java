@@ -3,7 +3,7 @@ package Service;
 import Model.User;
 import Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,8 +26,10 @@ public class UserService {
         return repository.findAll();
     }
 
-    public User getUserbyId(String id){
-        return repository.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format("User doesnt exist for id = %s!", id)));
+    public ResponseEntity<User> getUserbyId(String id) throws ResourceNotFoundException {
+        User user = repository.findById(id).orElseThrow(() ->
+                new  ResourceNotFoundException((String.format("User doesnt exist for id = %s!", id))));
+        return ResponseEntity.ok(user);
     }
 
     public String deleteUser(String id){
@@ -35,10 +37,10 @@ public class UserService {
         return "User with id:" + id + " is removed!";
     }
 
-    public User updateUser(User user){
-        User existingUser = repository.findById(user.getId()).orElseThrow(() -> new EntityNotFoundException(String.format("User doesnt exist for id = %s!", user.getId())));
+    public ResponseEntity<User> updateUser(User user) throws ResourceNotFoundException {
+        User existingUser = repository.findById(user.getId()).orElseThrow(() -> new ResourceNotFoundException(String.format("User doesnt exist for id = %s!", user.getId())));
+        repository.save(existingUser);
 
-
-        return repository.save(existingUser);
+        return ResponseEntity.ok(existingUser);
     }
 }

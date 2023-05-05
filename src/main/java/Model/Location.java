@@ -26,7 +26,7 @@ public class Location {
         this.temperatureLow = temperatureLow;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 

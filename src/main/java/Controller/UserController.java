@@ -1,8 +1,10 @@
 package Controller;
 
 import Model.User;
+import Service.ResourceNotFoundException;
 import Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,12 +28,12 @@ public class UserController {
     }
 
     @GetMapping("/user/{id}")
-    public User findUser(@PathVariable String id){
+    public ResponseEntity<User> findUser(@PathVariable String id) throws ResourceNotFoundException {
         return service.getUserbyId(id);
     }
 
     @PutMapping("/updateUser")
-    public User updateUser(@RequestBody User user){
+    public ResponseEntity<User> updateUser(@RequestBody User user) throws ResourceNotFoundException {
         return service.updateUser(user);
     }
 
