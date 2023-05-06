@@ -1,20 +1,50 @@
 package com.example.CS310_WEATHERAPP.Service;
 
 import com.example.CS310_WEATHERAPP.Model.User;
+import com.example.CS310_WEATHERAPP.Model.WeatherInfo;
 import com.example.CS310_WEATHERAPP.repo.UserRepository;
+import com.example.CS310_WEATHERAPP.repo.WeatherInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
     private final UserRepository repository;
 
-    @Autowired
-    public UserService(UserRepository repository) {
+    private final WeatherInfoRepository weatherInforepository;
+
+
+    public UserService(UserRepository repository, WeatherInfoRepository weatherInforepository) {
         this.repository = repository;
+        this.weatherInforepository = weatherInforepository;
+    }
+
+    // USER SERVICE
+
+    public ResponseEntity<List<WeatherInfo>> addWeatherInfoToList(String id, WeatherInfo weatherInfo) throws ResourceNotFoundException {
+        User user = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException((String.format("User doesnt exist for id = %s!", id))));
+        WeatherInfo existingWeatherInfo = weatherInforepository.findById(weatherInfo.getId()).orElseThrow(() ->
+                new ResourceNotFoundException((String.format("WeatherInfo doesnt exist for id = %s!", weatherInfo.getId()))));
+
+        List<WeatherInfo> InfoList = user.getWeatherInfoList();
+        InfoList.add(existingWeatherInfo);
+        repository.save(user);
+        return ResponseEntity.status(200).body(InfoList);
+    }
+
+    public ResponseEntity<List<WeatherInfo>> deleteWeatherInfoFromList(String id, WeatherInfo weatherInfo) throws ResourceNotFoundException {
+        User user = repository.findById(id).orElseThrow(() -> new ResourceNotFoundException((String.format("User doesnt exist for id = %s!", id))));
+        WeatherInfo existingWeatherInfo = weatherInforepository.findById(weatherInfo.getId()).orElseThrow(() ->
+                new ResourceNotFoundException((String.format("WeatherInfo doesnt exist for id = %s!", weatherInfo.getId()))));
+
+        List<WeatherInfo> InfoList = user.getWeatherInfoList();
+        InfoList.remove(existingWeatherInfo);
+        repository.save(user);
+        return ResponseEntity.status(204).body(InfoList);
     }
 
     // ADMIN SERVICE
@@ -44,4 +74,5 @@ public class UserService {
 
         return ResponseEntity.ok(existingUser);
     }
+
 }

@@ -13,14 +13,14 @@ public class User {
     private String id;
     private String name;
     @DBRef
-    private List<Location> locationList;
+    private List<WeatherInfo> weatherInfosList;
 
     public User() {
     }
 
-    public User(String name, List<Location> locationList) {
+    public User(String name, List<WeatherInfo> weatherInfoList) {
         this.name = name;
-        this.locationList = locationList;
+        this.weatherInfosList = weatherInfoList;
     }
 
     public String getId() {
@@ -39,12 +39,12 @@ public class User {
         this.name = name;
     }
 
-    public List<Location> getLocationList() {
-        return locationList;
+    public List<WeatherInfo> getWeatherInfoList() {
+        return weatherInfosList;
     }
 
-    public void setLocationList(List<Location> locationList) {
-        this.locationList = locationList;
+    public void setWeatherInfoList(List<WeatherInfo> weatherInfoList) {
+        this.weatherInfosList = weatherInfoList;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", locationList=" + locationList +
+                ", weatherInfoList=" + weatherInfosList +
                 '}';
     }
 }

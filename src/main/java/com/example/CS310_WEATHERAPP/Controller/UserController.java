@@ -1,6 +1,7 @@
 package com.example.CS310_WEATHERAPP.Controller;
 
 import com.example.CS310_WEATHERAPP.Model.User;
+import com.example.CS310_WEATHERAPP.Model.WeatherInfo;
 import com.example.CS310_WEATHERAPP.Service.ResourceNotFoundException;
 import com.example.CS310_WEATHERAPP.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,18 @@ public class UserController {
 
     @Autowired
     private UserService service;
+
+    // USER CONTROLS
+
+    @PutMapping("/addToList/{id}")
+    public ResponseEntity<List<WeatherInfo>> addWeatherInfoToList(@PathVariable String id,@RequestBody WeatherInfo weatherInfo) throws ResourceNotFoundException {
+        return service.addWeatherInfoToList(id, weatherInfo);
+    }
+
+    @PutMapping("/deleteFromList/{id}")
+    public ResponseEntity<List<WeatherInfo>> deleteWeatherInfoFromList(@PathVariable String id,@RequestBody WeatherInfo weatherInfo) throws ResourceNotFoundException {
+        return service.deleteWeatherInfoFromList(id, weatherInfo);
+    }
 
     // ADMIN CONTROLS
 

@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WeatherInfoRepository extends MongoRepository<WeatherInfo,String> {
+
+
+
 }
