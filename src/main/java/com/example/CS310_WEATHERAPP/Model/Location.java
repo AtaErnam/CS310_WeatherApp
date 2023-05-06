@@ -10,70 +10,71 @@ public class Location {
     @Id
     private String id;
 
+    
+    private double longtitude;
+    private double latitude;
     private String stateName;
-    private String weatherType;
-    private int temperatureHigh;
-    private int temperatureLow;
+    private String province;
 
 
     public Location() {
     }
 
-    public Location(String stateName, String weatherType, int temperatureHigh, int temperatureLow) {
-        this.stateName = stateName;
-        this.weatherType = weatherType;
-        this.temperatureHigh = temperatureHigh;
-        this.temperatureLow = temperatureLow;
-    }
+    public Location(double longtitude, double latitude, String stateName, String province) {
+		super();
+		this.longtitude = longtitude;
+		this.latitude = latitude;
+		this.stateName = stateName;
+		this.province = province;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getStateName() {
-        return stateName;
-    }
+	public double getLongtitude() {
+		return longtitude;
+	}
 
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
-    }
+	public void setLongtitude(double longtitude) {
+		this.longtitude = longtitude;
+	}
 
-    public String getWeatherType() {
-        return weatherType;
-    }
+	public double getLatitude() {
+		return latitude;
+	}
 
-    public void setWeatherType(String weatherType) {
-        this.weatherType = weatherType;
-    }
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
 
-    public int getTemperatureHigh() {
-        return temperatureHigh;
-    }
+	public String getStateName() {
+		return stateName;
+	}
 
-    public void setTemperatureHigh(int temperatureHigh) {
-        this.temperatureHigh = temperatureHigh;
-    }
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
+	}
 
-    public int getTemperatureLow() {
-        return temperatureLow;
-    }
+	public String getProvince() {
+		return province;
+	}
 
-    public void setTemperatureLow(int temperatureLow) {
-        this.temperatureLow = temperatureLow;
-    }
+	public void setProvince(String province) {
+		this.province = province;
+	}
 
-    @Override
-    public String toString() {
-        return "Location{" +
-                "id=" + id +
-                ", stateName='" + stateName + '\'' +
-                ", weatherType='" + weatherType + '\'' +
-                ", temperatureHigh=" + temperatureHigh +
-                ", temperatureLow=" + temperatureLow +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Location [longtitude=" + longtitude + ", latitude=" + latitude + ", stateName=" + stateName
+				+ ", province=" + province + "]";
+	}
+
+    
+    
+    
 }
