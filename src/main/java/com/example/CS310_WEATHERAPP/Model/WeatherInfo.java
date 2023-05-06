@@ -12,18 +12,18 @@ public class WeatherInfo {
 	private String id;
 	
 	private LocalDateTime time;
-	Location loc;
-	Weather weather;
+	private String locId;
+	private String weatherId;
 	
 	public WeatherInfo() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public WeatherInfo(LocalDateTime time, Location loc, Weather weather) {
+	public WeatherInfo(LocalDateTime time, String locId, String weatherId) {
 		super();
 		this.time = time;
-		this.loc = loc;
-		this.weather = weather;
+		this.locId = locId;
+		this.weatherId = weatherId;
 	}
 
 	public String getId() {
@@ -42,25 +42,25 @@ public class WeatherInfo {
 		this.time = time;
 	}
 
-	public Location getLoc() {
-		return loc;
+	public String getLocId() {
+		return locId;
 	}
 
-	public void setLoc(Location loc) {
-		this.loc = loc;
+	public void setLocId(String locId) {
+		this.locId = locId;
 	}
 
-	public Weather getWeather() {
-		return weather;
+	public String getWeatherId() {
+		return weatherId;
 	}
 
-	public void setWeather(Weather weather) {
-		this.weather = weather;
+	public void setWeatherId(String weatherId) {
+		this.weatherId = weatherId;
 	}
 
 	@Override
 	public String toString() {
-		return "Weatherinfo [time=" + time + ", loc=" + loc + ", weather=" + weather + "]";
+		return "WeatherInfo [time=" + time + ", locId=" + locId + ", weatherId=" + weatherId + "]";
 	}
 	
 	

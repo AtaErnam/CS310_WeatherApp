@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class WeatherInfoController {
 
     @Autowired
@@ -22,12 +22,12 @@ public class WeatherInfoController {
         return service.saveWeatherInfo(weather);
     }
 
-    @GetMapping("/weathers")
+    @GetMapping("/weatherInfo")
     public List<WeatherInfo> findAllWeatherInfos(){
         return service.getWeatherInfos();
     }
 
-    @GetMapping("/weather/{id}")
+    @GetMapping("/weatherInfo/{id}")
     public WeatherInfo findWeatherInfo(@PathVariable String id) throws ResourceNotFoundException {
         return service.getWeatherInfobyId(id);
     }
@@ -42,8 +42,4 @@ public class WeatherInfoController {
         return service.deleteWeatherInfo(id);
     }
 
-    @GetMapping("/testalper")
-    public String alpertest() {
-        return service.maltuna();
-    }
 }

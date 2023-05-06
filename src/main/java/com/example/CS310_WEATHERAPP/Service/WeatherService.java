@@ -27,10 +27,6 @@ public class WeatherService {
         return repository.findAll();
     }
 
-    public String maltuna() {
-        return "MALTUNA";
-    }
-
     public Weather getWeatherbyId(String id) throws ResourceNotFoundException {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(String.format("Weather doesnt exist for id = %s!", id)));
     }

@@ -43,8 +43,4 @@ public class WeatherController {
         return service.deleteWeather(id);
     }
 
-    @GetMapping("/testalper")
-    public String alpertest() {
-        return service.maltuna();
-    }
 }

@@ -25,9 +25,7 @@ public class WeatherInfoService {
         return repository.findAll();
     }
 
-    public String maltuna() {
-        return "MALTUNA";
-    }
+
 
     public WeatherInfo getWeatherInfobyId(String id) throws ResourceNotFoundException {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(String.format("WeatherInfo doesnt exist for id = %s!", id)));
@@ -40,8 +38,8 @@ public class WeatherInfoService {
 
     public WeatherInfo updateWeatherInfo(WeatherInfo weatherInfo) throws ResourceNotFoundException {
         WeatherInfo existingWeatherInfo = repository.findById(weatherInfo.getId()).orElseThrow(() -> new ResourceNotFoundException(String.format("WeatherInfo doesnt exist for id = %s!", weatherInfo.getId())));
-        existingWeatherInfo.setWeather(weatherInfo.getWeather());
-        existingWeatherInfo.setLoc(weatherInfo.getLoc());
+        existingWeatherInfo.setWeatherId(weatherInfo.getWeatherId());
+        existingWeatherInfo.setLocId(weatherInfo.getLocId());
 
         return repository.save(existingWeatherInfo);
     }
