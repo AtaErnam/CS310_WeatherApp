@@ -42,6 +42,10 @@ public class LocationService {
     public Location updateLocation(Location location) throws ResourceNotFoundException {
         Location existingLocation = repository.findById(location.getId()).orElseThrow(() -> new ResourceNotFoundException(String.format("Location doesnt exist for id = %s!", location.getId())));
 
+        existingLocation.setLongtitude(location.getLongtitude());
+        existingLocation.setLatitude(location.getLatitude());
+        existingLocation.setStateName(location.getStateName());
+        existingLocation.setProvince(location.getProvince());
 
         return repository.save(existingLocation);
     }

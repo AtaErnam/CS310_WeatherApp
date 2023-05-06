@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class Weatherinfo {
+public class WeatherInfo {
 
 	@Id
 	private String id;
@@ -15,11 +15,11 @@ public class Weatherinfo {
 	Location loc;
 	Weather weather;
 	
-	public Weatherinfo() {
+	public WeatherInfo() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Weatherinfo(LocalDateTime time, Location loc, Weather weather) {
+	public WeatherInfo(LocalDateTime time, Location loc, Weather weather) {
 		super();
 		this.time = time;
 		this.loc = loc;

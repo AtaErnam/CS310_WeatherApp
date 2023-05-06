@@ -39,6 +39,7 @@ public class UserService {
 
     public ResponseEntity<User> updateUser(User user) throws ResourceNotFoundException {
         User existingUser = repository.findById(user.getId()).orElseThrow(() -> new ResourceNotFoundException(String.format("User doesnt exist for id = %s!", user.getId())));
+        existingUser.setName(user.getName());
         repository.save(existingUser);
 
         return ResponseEntity.ok(existingUser);
