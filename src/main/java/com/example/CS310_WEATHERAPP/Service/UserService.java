@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +31,8 @@ public class UserService {
         WeatherInfo existingWeatherInfo = weatherInforepository.findById(weatherInfo.getId()).orElseThrow(() ->
                 new ResourceNotFoundException((String.format("WeatherInfo doesnt exist for id = %s!", weatherInfo.getId()))));
 
-        List<WeatherInfo> InfoList = user.getWeatherInfoList();
+        List<WeatherInfo> InfoList = new ArrayList<>();
+        InfoList =user.getWeatherInfoList();
         InfoList.add(existingWeatherInfo);
         repository.save(user);
         return ResponseEntity.status(200).body(InfoList);

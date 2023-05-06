@@ -12,6 +12,7 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("/weather")
 public class WeatherController {
     @Autowired
     private WeatherService service;
