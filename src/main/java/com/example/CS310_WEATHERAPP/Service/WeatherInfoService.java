@@ -40,6 +40,7 @@ public class WeatherInfoService {
         WeatherInfo existingWeatherInfo = repository.findById(weatherInfo.getId()).orElseThrow(() -> new ResourceNotFoundException(String.format("WeatherInfo doesnt exist for id = %s!", weatherInfo.getId())));
         existingWeatherInfo.setWeatherId(weatherInfo.getWeatherId());
         existingWeatherInfo.setLocId(weatherInfo.getLocId());
+        existingWeatherInfo.setTime(weatherInfo.getTime());
 
         return repository.save(existingWeatherInfo);
     }

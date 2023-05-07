@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -31,9 +32,17 @@ public class UserService {
         WeatherInfo existingWeatherInfo = weatherInforepository.findById(weatherInfo.getId()).orElseThrow(() ->
                 new ResourceNotFoundException((String.format("WeatherInfo doesnt exist for id = %s!", weatherInfo.getId()))));
 
-        List<WeatherInfo> InfoList = new ArrayList<>();
-        InfoList =user.getWeatherInfoList();
-        InfoList.add(existingWeatherInfo);
+        List<WeatherInfo> InfoList;
+        System.out.println("InfoList done");
+        InfoList = user.getWeatherInfoList();
+        if (InfoList == null) {
+        	InfoList = new ArrayList<>();
+        	InfoList.add(existingWeatherInfo);
+        	user.setWeatherInfoList(InfoList);
+        }
+        else {
+        	InfoList.add(existingWeatherInfo);
+        }
         repository.save(user);
         return ResponseEntity.status(200).body(InfoList);
     }
@@ -44,7 +53,28 @@ public class UserService {
                 new ResourceNotFoundException((String.format("WeatherInfo doesnt exist for id = %s!", weatherInfo.getId()))));
 
         List<WeatherInfo> InfoList = user.getWeatherInfoList();
-        InfoList.remove(existingWeatherInfo);
+        if (InfoList == null) {
+        	System.out.println("Ben nullum");
+        	InfoList = new ArrayList<>();
+        	user.setWeatherInfoList(InfoList);
+        }
+        else {
+        	System.out.println("Null değilim");
+        	
+        	
+        	for (int i = 0; i < InfoList.size(); i++) {
+        		
+        		String s1 = user.getWeatherInfoList().get(i).getId();
+        		String s2 = existingWeatherInfo.getId();
+        		
+        		if (s1.equals(s2)) {
+        			InfoList.remove(i);
+        			break;
+        		}
+			}
+        	/*InfoList.remove();*/
+        	System.out.println(InfoList);
+        }
         repository.save(user);
         return ResponseEntity.status(204).body(InfoList);
     }
