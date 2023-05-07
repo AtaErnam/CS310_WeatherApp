@@ -26,9 +26,6 @@ public class LocationService {
         return repository.findAll();
     }
     
-    public String maltuna() {
-    	return "MALTUNA"; 
-    }
 
     public Location getLocationbyId(String id) throws ResourceNotFoundException {
         return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(String.format("Location doesnt exist for id = %s!", id)));

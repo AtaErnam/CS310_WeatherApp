@@ -43,9 +43,6 @@ public class LocationController {
         return service.deleteLocation(id);
     }
     
-    @GetMapping("/testalper")
-    public String alpertest() {
-    	return service.maltuna();
-    }
+ 
     
 }
