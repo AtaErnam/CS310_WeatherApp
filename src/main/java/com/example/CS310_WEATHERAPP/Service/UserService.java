@@ -33,7 +33,6 @@ public class UserService {
                 new ResourceNotFoundException((String.format("WeatherInfo doesnt exist for id = %s!", weatherInfo.getId()))));
 
         List<WeatherInfo> InfoList;
-        System.out.println("InfoList done");
         InfoList = user.getWeatherInfoList();
         if (InfoList == null) {
         	InfoList = new ArrayList<>();
@@ -54,12 +53,12 @@ public class UserService {
 
         List<WeatherInfo> InfoList = user.getWeatherInfoList();
         if (InfoList == null) {
-        	System.out.println("Ben nullum");
+        	
         	InfoList = new ArrayList<>();
         	user.setWeatherInfoList(InfoList);
         }
         else {
-        	System.out.println("Null değilim");
+        	
         	
         	
         	for (int i = 0; i < InfoList.size(); i++) {
@@ -73,10 +72,9 @@ public class UserService {
         		}
 			}
         	/*InfoList.remove();*/
-        	System.out.println(InfoList);
         }
         repository.save(user);
-        return ResponseEntity.status(204).body(InfoList);
+        return ResponseEntity.status(200).body(InfoList);
     }
 
     // ADMIN SERVICE
